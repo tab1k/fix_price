@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="products">
+    <div class="wrapper">
+        <div class="name">
+            <h1>{{ product.name }}</h1>
+        </div>
+
+        <div class="flex" style="align-items: flex-start; gap: 24px;">
+            <div>
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width: 320px; border-radius: 8px;">
+            </div>
+            <div>
+                <p><strong>Категория:</strong> {{ product.category.name }}</p>
+                <p><strong>Цена:</strong> {{ product.price }} ₸</p>
+                <p><strong>Остаток:</strong> {{ product.stock }}</p>
+                <p>{{ product.description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <div class="wrapper">
+                <div class="popup_form">
+                    <div class="form">
+                    <form method="post" action="{% url 'users:login' %}" class="mb-3">
+                            {% csrf_token %}
+                            <div class="img">
+                                <a href="{% url 'base:home' %}"> <img src="{% static 'images/logo.png' %}" alt=""></a>
+                            </div>
+                            <div class="input">
+                                <label for="email"> <b>Электронная почта</b> </label>
+                                <input type="email" name="email" placeholder="email@gmail.com">
+                            </div>
+                            <div class="input">
+                                <label for="password"> <b>Пароль</b> </label>
+                                <input type="password" name="password" placeholder="**********">
+                            </div>
+                            <div class="input">
+                                <button type="submit" class="auth_btn" value="Войти">Войти</button>
+                            </div>
+
+
+                            <p id="or">ИЛИ</p>
+
+                            <div class="form_icons">
+                                <img src="{% static 'icons/gmail.png' %}" alt="">
+                                <img src="{% static 'icons/facebook1 (1).png' %}" alt="">
+                                <img src="{% static 'icons/twitter.png' %}" alt="">
+                            </div>
+
+                            <p>Нужен аккаунт? <a href="{% url 'users:register' %}"> Зарегистрируйтесь</a> </p>
+                        </form>         
+                    </div>
+                </div>
+         </div>         
+{% endblock %}

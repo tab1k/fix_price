@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="products">
+    <div class="wrapper">
+        <div class="name">
+            <h1>{{ category.name }}</h1>
+        </div>
+
+        {% if category.image %}
+        <div style="margin-bottom: 20px;">
+            <img src="{{ category.image.url }}" alt="{{ category.name }}" style="max-width: 260px; border-radius: 8px;">
+        </div>
+        {% endif %}
+
+        <div class="flex">
+            {% for product in products %}
+            <div class="product-card">
+                <div class="inner-card">
+                    <div class="inner-info">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                        <h2>{{ product.name }}</h2>
+                        <p>{{ product.description|truncatechars:80 }}</p>
+                    </div>
+                    <div class="inner-desc">
+                        <p>В наличии: {{ product.stock }}</p>
+                        <p><span>{{ product.price }} ₸</span></p>
+                    </div>
+                    <div class="inner-btn">
+                        <a href="{% url 'store:product' product.slug %}">
+                            <button class="default">Подробнее</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>В этой категории пока нет товаров.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

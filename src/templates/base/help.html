@@ -1,0 +1,263 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    /* ===== Шапка помощи ===== */
+
+#help-header {
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+#help-header h1 {
+    font-size: 42px;
+    font-weight: 700;
+}
+
+#help-header p {
+    color: #f1f1f1;
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ===== Поиск ===== */
+
+#help-search {
+    background: #f8f9fc;
+    text-align: center;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.search-box input {
+    width: 350px;
+    padding: 14px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.search-box button {
+    padding: 14px 25px;
+    border-radius: 6px;
+    border: none;
+    background: #4e73df;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.search-box button:hover {
+    background: #2e59d9;
+}
+
+/* ===== FAQ ===== */
+
+#help-faq {
+    background: #fff;
+}
+
+.faq-item {
+    background: #f8f9fc;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.faq-item:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.faq-item h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+/* ===== Категории ===== */
+
+#help-categories {
+    background: #f8f9fc;
+    text-align: center;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.category-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.category-card h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #4e73df;
+}
+
+/* ===== Форма поддержки ===== */
+
+#contact-support {
+    background: #ffffff;
+}
+
+.support-box {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.support-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.support-box input,
+.support-box textarea {
+    padding: 14px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+}
+
+.support-box textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.support-box button {
+    padding: 14px;
+    border-radius: 6px;
+    border: none;
+    background: #1cc88a;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.support-box button:hover {
+    background: #17a673;
+}
+
+/* ===== Адаптив ===== */
+
+@media (max-width: 768px) {
+    #help-header h1 {
+        font-size: 32px;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+}
+</style>
+<section id="help-header">
+    <div class="wrapper">
+        <div class="help-intro">
+            <h1>Центр помощи</h1>
+            <p>Здесь вы найдёте ответы на часто задаваемые вопросы и инструкции по использованию сервиса.</p>
+        </div>
+    </div>
+</section>
+
+<section id="help-search" style="padding-top: 50px;">
+    <div class="wrapper">
+        <div class="search-box">
+            <input type="text" placeholder="Поиск по вопросам...">
+            <button>Найти</button>
+        </div>
+    </div>
+</section>
+
+<section id="help-faq">
+    <div class="wrapper">
+
+        <div class="faq-item">
+            <h3>Как зарегистрироваться?</h3>
+            <p>Нажмите кнопку «Регистрация» в правом верхнем углу сайта, заполните форму и подтвердите электронную почту.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Как восстановить пароль?</h3>
+            <p>На странице входа нажмите «Забыли пароль?», введите свою почту и следуйте инструкции в письме.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Как изменить личные данные?</h3>
+            <p>Перейдите в раздел «Профиль» в личном кабинете и отредактируйте необходимую информацию.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Как связаться с поддержкой?</h3>
+            <p>Вы можете отправить обращение через форму обратной связи или написать нам на электронную почту support@example.com.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="help-categories">
+    <div class="wrapper">
+        <h2>Разделы помощи</h2>
+        <div class="categories-grid">
+            <div class="category-card">
+                <h4>Аккаунт</h4>
+                <p>Регистрация, вход, восстановление доступа.</p>
+            </div>
+            <div class="category-card">
+                <h4>Заказы</h4>
+                <p>Оформление, отслеживание и отмена заказов.</p>
+            </div>
+            <div class="category-card">
+                <h4>Оплата</h4>
+                <p>Способы оплаты и безопасность платежей.</p>
+            </div>
+            <div class="category-card">
+                <h4>Доставка</h4>
+                <p>Сроки, стоимость и способы получения товара.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact-support" style="padding: 30px 0;">
+    <div class="wrapper">
+        <div class="support-box">
+            <h2>Не нашли ответ?</h2>
+            <p>Оставьте обращение, и мы свяжемся с вами в ближайшее время.</p>
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="email" name="email" placeholder="Ваш email" required>
+                <textarea name="message" placeholder="Опишите вашу проблему..." required></textarea>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

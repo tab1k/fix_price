@@ -1,0 +1,108 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <section id="about">
+        <div class="wrapper">
+            <div class="about-flex">
+                <div class="about-text">
+                    <h1> О нас </h1>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                        but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                        popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                        and more recently with desktop publishing software like Aldus PageMaker including versions of
+                        Lorem Ipsum</p>
+                </div>
+                <img src="{% static 'images/logo.png' %}" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section id="advant">
+        <div class="wrapper">
+            <img src="{% static 'images/+.png' %}" alt="">
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="wrapper">
+            <div class="about-flex reverse">
+                <div class="about-text">
+                    <h1> О нас </h1>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                        but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                        popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                        and more recently with desktop publishing software like Aldus PageMaker including versions of
+                        Lorem Ipsum</p>
+                </div>
+                <img src="{% static 'images/logo.png' %}" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section id="partners">
+        <div class="wrapper">
+            <div class="name">
+                <h1>Наши партнеры</h1>
+            </div>
+            <div class="row">
+                <div class="partner">
+                    <img src="{% static 'images/partner1.png' %}" alt="">
+                </div>
+                <div class="partner">
+                    <img src="{% static 'images/partner1.png' %}" alt="">
+                </div>
+                <div class="partner">
+                    <img src="{% static 'images/partner1.png' %}" alt="">
+                </div>
+                <div class="partner">
+                    <img src="{% static 'images/partner1.png' %}" alt="">
+                </div>
+                <div class="partner">
+                    <img src="{% static 'images/partner1.png' %}" alt="">
+                </div>
+
+
+                <div class="partner">
+                    <img src="{% static 'images/partner1.png' %}" alt="">
+                </div>
+                <div class="partner">
+                    <img src="{% static 'images/partner1.png' %}" alt="">
+                </div>
+                <div class="partner">
+                    <img src="{% static 'images/partner1.png' %}" alt="">
+                </div>
+                <div class="partner">
+                    <img src="{% static 'images/partner1.png' %}" alt="">
+                </div>
+                <div class="partner">
+                    <img src="{% static 'images/partner1.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="pre-footer">
+        <div class="wrapper">
+            <div class="text">
+                <h1>Выгода с доставкой</h1>
+                <p>Подпишитесь и получайте промокоды, акции и подборки товаров на почту.</p>
+            </div>
+            <div class="search-footer">
+                <input type="email" placeholder="Введите вашу почту:">
+                <button>Подробнее</button>
+            </div>
+            <div class="text textp">
+                <p>Нажимая «Подписаться» вы соглашаетесь с <span> Условиями использования сайта </span> и <span>
+                        Политикой обработки
+                        персональных данных. </span> </p>
+            </div>
+        </div>
+    </section>
+    
+{% endblock %}

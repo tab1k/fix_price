@@ -1,0 +1,388 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>�������</title>
+    <link rel="shortcut icon" href="./images/logo.png">
+    <link rel="stylesheet" href="./styles/favorite.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/adaptive_main.css">
+    <link rel="stylesheet" href="./styles/adaptive_favorite.css">
+    <script src="https://kit.fontawesome.com/140219e2b5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header id="header">
+        <div class="wrapper">
+            <div class="inner">
+                <div class="flex">
+                    <div class="logo">
+                        <a href="./main.html"><img src="./images/logo.png" alt="logo" width="100%"></a>
+                    </div>
+                    <nav>
+                        <a href="./login.html"><img src="./icons/user.png" alt=""></a>
+                        <a href="./orders.html"><img src="./icons/shopping-bag.png" alt=""></a>
+                        <a href="./favorite.html"><img src="./icons/heart.png" alt=""></a>
+                        <a href=""><img src="./icons/shopping-cart.png" alt=""></a>
+                    </nav>
+                    <div class="search-header">
+                        <input type="text" placeholder="������ ������:">
+                        <button><img src="./icons/search.png" alt=""></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-mobile">
+        <div class="wrapper">
+            <div class="flex">
+                <div class="logo-mobile" onclick="return_top()">
+                    <img src="./images/logo.png" alt="logo" width="100%">
+                </div>
+                <div class="burger-menu" onclick="open_close()">
+                    <div class="menu-inner">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="burger-links">
+            <div class="wrapper">
+                <a href="./main.html"> <img src="./images/logo.png" alt=""> �������</a>
+                <a href="./about_us.html"> <img src="./icons/aboutus.png" alt=""> � ���</a>
+                <a href="./market.html"> <img src="./icons/shop2.png" alt=""> ������</a>
+                <a href="./orders.html"> <img src="./icons/shopping-bag.png" alt=""> ������</a>
+                <a href="./favorite.html"> <img src="./icons/heart.png" alt=""> ���������</a>
+                <a href="#"> <img src="./icons/shopping-cart.png" alt=""> �o�����</a>
+                <a href="./sale.html"> <img src="./icons/akciya.png" alt=""> �����</a>
+                <a href="#"> <img src="./icons/help.webp" alt=""> ������</a>
+                <a href="./login.html"> <img src="./icons/user.png" alt=""> �����</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="second-nav">
+            <div class="link-nav">
+                <img src="./icons/aboutus.png" alt=""><a href="./about_us.html">� ���</a>
+            </div>
+            <div class="link-nav">
+                <img src="./icons/shop2.png" alt=""><a href="./market.html">������</a>
+            </div>
+            <div class="link-nav">
+                <img src="./icons/akciya.png" alt=""><a href="./sale.html">�����</a>
+            </div>
+            <div class="link-nav">
+                <img src="./icons/help.webp" alt=""><a href="#">������</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-header-mobile">
+        <input type="text" placeholder="������ ������:">
+        <button><img src="./icons/search.png" alt=""></button>
+    </div>
+
+    <section id="products">
+        <div class="wrapper">
+            <div class="name">
+                <h1>���������</h1>
+            </div>
+            <div class="left">
+                <div class="flex-search">
+                    <input type="text" placeholder="�����..">
+                    <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                </div>
+
+                <div class="filter">
+                    <div class="filter-up" onclick="openn()">
+                        <p>�� ���� ���������� <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i
+                                class="fa fa-caret-down" aria-hidden="true"></i></p>
+                    </div>
+                    <div class="filter-down">
+                        <p>�� ���� ���������� <i class="fa fa-long-arrow-up" aria-hidden="true"></i></p>
+                        <p>�� ���� ���������� <i class="fa fa-long-arrow-down" aria-hidden="true"></i></p>
+                        <p>�� ������������ ����</p>
+                        <p>�� �������� ����</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex">
+                <div class="product-card">
+                    <div class="inner-card">
+                        <div class="heart">
+                            <i class="fa fa-times" aria-hidden="true"></i> <span>�������� � ���������</span></i>
+                        </div>
+                        <div class="inner-info">
+                            <img src="./images/rafaello.png" alt="">
+                            <h2>Rafaello</h2>
+                            <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum </p>
+                        </div>
+                        <div class="inner-desc">
+                            <p>300 ml</p>
+                            <p> <span>700 ?</span></p>
+                        </div>
+                        <div class="inner-btn">
+                            <button class="default">� �������</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="inner-card">
+                        <div class="heart" onclick="tap()">
+                            <i class="fa fa-times" aria-hidden="true"></i> <span>�������� � ���������</span></i>
+                        </div>
+                        <div class="inner-info">
+                            <img src="./images/rafaello.png" alt="">
+                            <h2>Rafaello</h2>
+                            <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum </p>
+                        </div>
+                        <div class="inner-desc">
+                            <p>300 ml</p>
+                            <p> <span>700 ?</span></p>
+                        </div>
+                        <div class="inner-btn">
+                            <button class="default">� �������</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="inner-card">
+                        <div class="heart">
+                            <i class="fa fa-times" aria-hidden="true"></i> <span>�������� � ���������</span></i>
+                        </div>
+                        <div class="inner-info">
+                            <img src="./images/rafaello.png" alt="">
+                            <h2>Rafaello</h2>
+                            <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum </p>
+                        </div>
+                        <div class="inner-desc">
+                            <p>300 ml</p>
+                            <p> <span>700 ?</span></p>
+                        </div>
+                        <div class="inner-btn">
+                            <button class="default">� �������</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="inner-card">
+                        <div class="heart">
+                            <i class="fa fa-times" aria-hidden="true"></i><span>�������� � ���������</span></i>
+                        </div>
+                        <div class="inner-info">
+                            <img src="./images/rafaello.png" alt="">
+                            <h2>Rafaello</h2>
+                            <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum </p>
+                        </div>
+                        <div class="inner-desc">
+                            <p>300 ml</p>
+                            <p> <span>700 ?</span></p>
+                        </div>
+                        <div class="inner-btn">
+                            <button class="default">� �������</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="product-card">
+                    <div class="inner-card">
+                        <div class="heart">
+                            <i class="fa fa-times" aria-hidden="true"></i> <span>�������� � ���������</span></i>
+                        </div>
+                        <div class="inner-info">
+                            <img src="./images/rafaello.png" alt="">
+                            <h2>Rafaello</h2>
+                            <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum </p>
+                        </div>
+                        <div class="inner-desc">
+                            <p>300 ml</p>
+                            <p> <span>700 ?</span></p>
+                        </div>
+                        <div class="inner-btn">
+                            <button class="default">� �������</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="inner-card">
+                        <div class="heart" onclick="tap()">
+                            <i class="fa fa-times" aria-hidden="true"></i> <span>�������� � ���������</span></i>
+                        </div>
+                        <div class="inner-info">
+                            <img src="./images/rafaello.png" alt="">
+                            <h2>Rafaello</h2>
+                            <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum </p>
+                        </div>
+                        <div class="inner-desc">
+                            <p>300 ml</p>
+                            <p> <span>700 ?</span></p>
+                        </div>
+                        <div class="inner-btn">
+                            <button class="default">� �������</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="inner-card">
+                        <div class="heart">
+                            <i class="fa fa-times" aria-hidden="true"></i> <span>�������� � ���������</span></i>
+                        </div>
+                        <div class="inner-info">
+                            <img src="./images/rafaello.png" alt="">
+                            <h2>Rafaello</h2>
+                            <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum </p>
+                        </div>
+                        <div class="inner-desc">
+                            <p>300 ml</p>
+                            <p> <span>700 ?</span></p>
+                        </div>
+                        <div class="inner-btn">
+                            <button class="default">� �������</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="inner-card">
+                        <div class="heart">
+                            <i class="fa fa-times" aria-hidden="true"></i><span>�������� � ���������</span></i>
+                        </div>
+                        <div class="inner-info">
+                            <img src="./images/rafaello.png" alt="">
+                            <h2>Rafaello</h2>
+                            <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum </p>
+                        </div>
+                        <div class="inner-desc">
+                            <p>300 ml</p>
+                            <p> <span>700 ?</span></p>
+                        </div>
+                        <div class="inner-btn">
+                            <button class="default">� �������</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section id="pre-footer">
+        <div class="wrapper">
+            <div class="text">
+                <h1>������ � ���������</h1>
+                <p>����������� � ��������� ���������, ����� � �������� ������� �� �����.</p>
+            </div>
+            <div class="search-footer">
+                <input type="email" placeholder="������� ���� �����:">
+                <button>���������</button>
+            </div>
+            <div class="text textp">
+                <p>������� ������������� �� ������������ � <span> ��������� ������������� ����� </span> � <span>
+                        ��������� ���������
+                        ������������ ������. </span> </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrapper">
+            <hr>
+            <div class="footer-inner">
+                <div class="footer-flex">
+                    <div class="logo">
+                        <img src="./images/logo.png" alt="">
+                        <div class="icons">
+                            <a href=""><img src="./icons/instagram-black.png" alt=""></a>
+                            <a href=""><img src="./icons/facebook.png" alt=""></a>
+                            <a href=""><img src="./icons/telegram-black.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="link">
+                        <h3>�����������</h3>
+                        <input type="checkbox" name="toggle" id="toggle" class="toggleMenu">
+                        <label for="sub_m1" class="toggleMenu"><i class="fa"></i></label>
+                        <div class="links" id="link1">
+                            <a href="">� ��������</a>
+                            <a href="">��������</a>
+                            <a href="">��������</a>
+                            <a href="">���������</a>
+                            <a href="">����������� ���������</a>
+                            <a href="">��������� �����������</a>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="link">
+                        <h3>����������</h3>
+                        <input type="checkbox" name="toggle" id="toggle" class="toggleMenu">
+                        <label for="sub_m1" class="toggleMenu"><i class="fa"></i></label>
+                        <div class="links" id="link2">
+                            <a href="">������ ����������</a>
+                            <a href="">��������</a>
+                            <a href="">�����</a>
+                            <a href="">������</a>
+                            <a href="">�������</a>
+                            <a href="">���������</a>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="link">
+                        <h3>�������� ����������</h3>
+                        <input type="checkbox" name="toggle" id="toggle" class="toggleMenu">
+                        <label for="sub_m1" class="toggleMenu"><i class="fa"></i></label>
+                        <div class="links" id="link3">
+                            <a href="">������� ����������� ������</a>
+                            <a href="">������� ��������� ������������ ������</a>
+                            <a href="">������� ������ � ��������</a>
+                            <a href="">������� �������</a>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="link">
+                        <h3>���������</h3>
+                        <input type="checkbox" name="toggle" id="toggle" class="toggleMenu">
+                        <label for="sub_m1" class="toggleMenu"><i class="fa"></i></label>
+                        <div class="links" id="link4">
+                            <a href="">������ ���������</a>
+                            <a href="">����������� � ��������������</a>
+                            <a href="">���� � ������ �������</a>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="logo mobile-logo">
+                        <img src="./images/logo.png" alt="">
+                        <div class="icons">
+                            <a href=""><img src="./icons/instagram-black.png" alt=""></a>
+                            <a href=""><img src="./icons/facebook.png" alt=""></a>
+                            <a href=""><img src="./icons/telegram-black.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous">
+    </script>
+    <script src="./scripts/main.js"></script>
+    <script>
+        function openn() {
+            $(".filter-down").toggleClass("hidden")
+        }
+    </script>
+</body>
+
+</html>
