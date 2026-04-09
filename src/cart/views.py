@@ -25,8 +25,10 @@ class CartListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['cart'] = Cart.objects.filter(user=self.request.user).first()
+        cart = Cart.objects.filter(user=self.request.user).first()
+        context['cart'] = cart
         context['datetime'] = datetime.now()
+        context['total_price'] = cart.get_total_price() if cart else 0
         return context
 
 

@@ -34,6 +34,21 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    def save(self, *args, **kwargs):
+        """Автоматически проставляем slug из названия, если он не задан."""
+        if not self.slug:
+            base_slug = slugify(self.name, allow_unicode=True)
+            unique_slug = base_slug
+
+            counter = 1
+            while self.__class__.objects.filter(slug=unique_slug).exclude(pk=self.pk).exists():
+                unique_slug = f"{base_slug}-{counter}"
+                counter += 1
+
+            self.slug = unique_slug
+
+        super().save(*args, **kwargs)
+
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'

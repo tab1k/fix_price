@@ -55,12 +55,77 @@ def profile(request):
 
 @login_required
 def orders(request):
-    return render(request, 'users/orders.html', {'user': request.user})
+    demo_orders = [
+        {
+            'image': 'images/банан.png',
+            'title': 'Бананы, 1кг.',
+            'quantity': '20 шт.',
+            'price': '500 ₸',
+            'status': 'Доставляется',
+            'status_icon': 'fa-refresh',
+            'date': '29/05/2022',
+            'address': 'Алматы, проспект Назарбаева, 58',
+            'seller': 'ТехноGRAD',
+        },
+        {
+            'image': 'images/банан.png',
+            'title': 'Бананы, 1кг.',
+            'quantity': '20 шт.',
+            'price': '500 ₸',
+            'status': 'Доставлено',
+            'status_icon': 'fa-check',
+            'date': '29/05/2022',
+            'address': 'Алматы, проспект Назарбаева, 58',
+            'seller': 'ТехноGRAD',
+        },
+        {
+            'image': 'images/банан.png',
+            'title': 'Бананы, 1кг.',
+            'quantity': '20 шт.',
+            'price': '500 ₸',
+            'status': 'Доставляется',
+            'status_icon': 'fa-check',
+            'date': '29/05/2022',
+            'address': 'Алматы, проспект Назарбаева, 58',
+            'seller': 'ТехноGRAD',
+        },
+    ]
+    return render(request, 'users/orders.html', {'user': request.user, 'orders': demo_orders})
 
 
 @login_required
 def favorites(request):
-    return render(request, 'users/favorites.html', {'user': request.user})
+    demo_favorites = [
+        {
+            'image': 'images/rafaello.png',
+            'name': 'Rafaello',
+            'desc': 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum',
+            'volume': '300 ml',
+            'price': '700 ₸',
+        },
+        {
+            'image': 'images/rafaello.png',
+            'name': 'Rafaello',
+            'desc': 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum',
+            'volume': '300 ml',
+            'price': '700 ₸',
+        },
+        {
+            'image': 'images/rafaello.png',
+            'name': 'Rafaello',
+            'desc': 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum',
+            'volume': '300 ml',
+            'price': '700 ₸',
+        },
+        {
+            'image': 'images/rafaello.png',
+            'name': 'Rafaello',
+            'desc': 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum',
+            'volume': '300 ml',
+            'price': '700 ₸',
+        },
+    ]
+    return render(request, 'users/favorites.html', {'user': request.user, 'favorites': demo_favorites})
 
 
 @login_required

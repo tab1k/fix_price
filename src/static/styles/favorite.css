@@ -63,7 +63,13 @@
     border-radius: 8px;
     color: rgb(0, 0, 0, 0.5);
     font-size: 15px;
-    margin-top: 10px;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    z-index: 5;
+    margin-top: 0;
 }
 .filter-down p{
     padding: 7px 10px;

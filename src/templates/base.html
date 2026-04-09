@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{% static 'styles/adaptive_sale.css' %}">
     <link rel="stylesheet" href="{% static 'styles/signin.css?v=2' %}">
     <link rel="stylesheet" href="{% static 'styles/adaptive_signin.css' %}">
+    {% block extra_head %}{% endblock %}
 
     <script src="https://kit.fontawesome.com/140219e2b5.js" crossorigin="anonymous"></script>
 </head>
@@ -36,10 +37,6 @@
                         <a href="{% url 'users:orders' %}"><img src="{% static 'icons/shopping-bag.png' %}" alt=""></a>
                         <a href="{% url 'users:favorites' %}"><img src="{% static 'icons/heart.png' %}" alt=""></a>
                         <a href="{% url 'cart:cart_list' %}"><img src="{% static 'icons/shopping-cart.png' %}" alt=""></a>
-                        <form method="post" action="{% url 'users:logout' %}" style="display:inline;">
-                            {% csrf_token %}
-                            <button type="submit" style="background:none;border:none;cursor:pointer;padding:0 0 0 8px;">Выйти</button>
-                        </form>
                         {% else %}
                         <a href="{% url 'users:login' %}"><img src="{% static 'icons/user.png' %}" alt=""></a>
                         <a href="{% url 'users:login' %}"><img src="{% static 'icons/shopping-bag.png' %}" alt=""></a>

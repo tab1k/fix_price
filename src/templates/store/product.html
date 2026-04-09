@@ -16,6 +16,16 @@
                 <p><strong>Цена:</strong> {{ product.price }} ₸</p>
                 <p><strong>Остаток:</strong> {{ product.stock }}</p>
                 <p>{{ product.description }}</p>
+                <div style="margin-top: 12px;">
+                    {% if user.is_authenticated %}
+                    <form method="post" action="{% url 'cart:add_to_cart' product.id %}">
+                        {% csrf_token %}
+                        <button class="default" type="submit">В корзину</button>
+                    </form>
+                    {% else %}
+                    <a href="{% url 'users:login' %}" class="default" style="text-decoration:none; padding:12px 20px; display:inline-block;">Войдите, чтобы добавить в корзину</a>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>

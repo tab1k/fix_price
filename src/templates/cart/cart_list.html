@@ -1,29 +1,59 @@
 ﻿{% extends 'base.html' %}
 {% load static %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'styles/cart.css' %}">
+{% endblock %}
 {% block content %}
-    <section id="about">
+    <section id="cart">
         <div class="wrapper">
-            <div class="about-flex">
+            <div class="name" style="margin-top: 40px;">
                 <h1>Корзина</h1>
-                <p>Добро пожаловать {{ user.email }}</p>
             </div>
-            <div class="cart-items">
-            {% for item in cart_items %}
-                <div class="cart-item">
-                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" width="100%">
-                    <div class="item-details">
-                        <h3>{{ item.product.name }}</h3>
-                        <p>Цена: {{ item.product.price }}</p>
-                        <p>Количество: {{ item.quantity }}</p>
-                        <p>Количество: {{ item.quantity }}</p>
+
+            {% if cart_items %}
+            <div class="cart-layout">
+                <div>
+                    <div class="cart-items-grid">
+                        {% for item in cart_items %}
+                        <div class="cart-card">
+                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            <div>
+                                <h3>{{ item.product.name }}</h3>
+                                <p class="muted">В наличии: {{ item.product.stock }}</p>
+                                <p class="muted">Количество: {{ item.quantity }}</p>
+                                <p class="price">Сумма: {{ item.get_total_price }} ₸</p>
+                                <div class="cart-actions">
+                                    <a class="default" href="{% url 'store:product' item.product.slug %}" style="text-decoration:none;">Подробнее</a>
+                                    <form method="post" action="{% url 'cart:remove_from_cart' item.id %}" style="margin:0;">
+                                        {% csrf_token %}
+                                        <button class="default" type="submit">Удалить</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
                     </div>
                 </div>
-            {% empty %}
-                <p>Ваша корзина пуста</p>
-                <p>{{ cart.user.email }}</p>
-                <p>{{ datetime }}</p>
-            {% endfor %}
+                <div>
+                    <div class="cart-summary">
+                        <h3>Итого</h3>
+                        <p class="total">{{ total_price }} ₸</p>
+                        <p style="color: rgba(0,0,0,0.6); font-size: 14px;">Обновлено: {{ datetime|date:"d.m.Y H:i" }}</p>
+                        <a class="default" href="#" style="text-decoration:none; margin-top:12px; display:block;">Оформить заказ</a>
+                        <a class="default" href="{% url 'base:market' %}" style="text-decoration:none; margin-top:10px; display:block;">Продолжить покупки</a>
+                    </div>
+                </div>
             </div>
+            {% else %}
+            <div class="cart-empty">
+                <h3>Ваша корзина пуста</h3>
+                <p>Добавьте товары из каталога, чтобы оформить заказ.</p>
+                <div class="cart-empty-actions">
+                    <a class="default" href="{% url 'base:market' %}" style="text-decoration:none;">Перейти в каталог</a>
+                    <a class="default" href="{% url 'users:favorites' %}" style="text-decoration:none;">Открыть избранное</a>
+                </div>
+            </div>
+            {% endif %}
         </div>
     </section>
 {% endblock %}

@@ -1,12 +1,94 @@
 ﻿{% extends 'base.html' %}
 {% load static %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'styles/favorite.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/adaptive_favorite.css' %}">
+{% endblock %}
 {% block content %}
-    <section id="about">
+    <section id="products">
         <div class="wrapper">
-            <div class="about-flex">
+            <div class="name">
                 <h1>Избранное</h1>
-                <p>Добро пожаловать {{user.email}}</p>    
+            </div>
+            <div class="left">
+                <div class="flex-search">
+                    <input type="text" placeholder="Поиск..">
+                    <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                </div>
+
+                <div class="filter">
+                    <div class="filter-up" onclick="openn()">
+                        <p>По дате добавления <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i
+                                class="fa fa-caret-down" aria-hidden="true"></i></p>
+                    </div>
+                    <div class="filter-down hidden">
+                        <p>По дате добавления <i class="fa fa-long-arrow-up" aria-hidden="true"></i></p>
+                        <p>По дате добавления <i class="fa fa-long-arrow-down" aria-hidden="true"></i></p>
+                        <p>По возврастанию цены</p>
+                        <p>По убыванию цены</p>
+                    </div>
+                </div>
+            </div>
+
+            {% if favorites %}
+            <div class="flex">
+                {% for item in favorites %}
+                <div class="product-card">
+                    <div class="inner-card">
+                        <div class="heart">
+                            <i class="fa fa-times" aria-hidden="true"></i> <span>Убрать из избранного</span>
+                        </div>
+                        <div class="inner-info">
+                            <img src="{% static item.image %}" alt="{{ item.name }}">
+                            <h2>{{ item.name }}</h2>
+                            <p>{{ item.desc }}</p>
+                        </div>
+                        <div class="inner-desc">
+                            <p>{{ item.volume }}</p>
+                            <p> <span>{{ item.price }}</span></p>
+                        </div>
+                        <div class="inner-btn">
+                            {% if user.is_authenticated %}
+                                <form method="post" action="#">
+                                    {% csrf_token %}
+                                    <button class="default" type="submit">В корзину</button>
+                                </form>
+                            {% else %}
+                                <a class="default" href="{% url 'users:login' %}" style="text-decoration:none; display:block; text-align:center;">Войти, чтобы добавить</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p style="margin-top:15px;">Избранных товаров пока нет.</p>
+            {% endif %}
+        </div>
+    </section>
+
+    <section id="pre-footer">
+        <div class="wrapper">
+            <div class="text">
+                <h1>Выгода с доставкой</h1>
+                <p>Подпишитесь и получайте промокоды, акции и подборки товаров на почту.</p>
+            </div>
+            <div class="search-footer">
+                <input type="email" placeholder="Введите вашу почту:">
+                <button>Подробнее</button>
+            </div>
+            <div class="text textp">
+                <p>Нажимая «Подписаться» вы соглашаетесь с <span> Условиями использования сайта </span> и <span>
+                        Политикой обработки
+                        персональных данных. </span> </p>
             </div>
         </div>
     </section>
+
+    <script>
+        function openn() {
+            const el = document.querySelector('.filter-down');
+            if (el) el.classList.toggle('hidden');
+        }
+    </script>
 {% endblock %}

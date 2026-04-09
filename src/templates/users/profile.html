@@ -1,11 +1,151 @@
 ﻿{% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<style>
+    .profile-hero{
+        background: linear-gradient(135deg, #f0f5ff 0%, #ffffff 60%);
+        border: 1px solid #e5ecf7;
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .avatar-circle{
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        background: #0353a4;
+        color: #fff;
+        font-size: 32px;
+        font-weight: 700;
+        display: grid;
+        place-items: center;
+        box-shadow: 0 12px 26px rgba(3,83,164,0.25);
+    }
+    .hero-info h2{ margin: 4px 0 6px; }
+    .hero-header{
+        display:flex;
+        align-items:center;
+        justify-content: space-between;
+        gap:12px;
+        flex-wrap:wrap;
+    }
+    .hero-badges{
+        display:flex;
+        gap:10px;
+        flex-wrap:wrap;
+        margin:6px 0;
+    }
+    .hero-badge{
+        background:#fff;
+        border:1px solid #dfe8f5;
+        padding:6px 10px;
+        border-radius:12px;
+        font-size:13px;
+        color:#0f172a;
+    }
+    .profile-actions{
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+    }
+    .profile-grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+        margin-top: 18px;
+    }
+    .profile-link{
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: #0f172a;
+        padding: 14px;
+        border-radius: 14px;
+        border: 1px solid #eef1f5;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        background: #fff;
+    }
+    .profile-link:hover{
+        transform: translateY(-3px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    }
+    .profile-link img{
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        padding: 8px;
+        background: #eef5ff;
+    }
+    @media (max-width: 720px){
+        .profile-hero{ flex-direction: column; align-items:flex-start; }
+    }
+</style>
     <section id="about">
         <div class="wrapper">
-            <div class="about-flex">
-                <h1>Профиль</h1>
-                <p>Добро пожаловать {{user.email}}</p>    
+            <div class="profile-hero">
+                <div class="avatar-circle">
+                    {{ user.email|first|upper }}
+                </div>
+                <div class="hero-info" style="flex:1;">
+                    <div class="hero-header">
+                        <h2 style="margin:0;">{{ user.email }}</h2>
+                        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                            <a class="default" href="#" style="text-decoration:none;">Изменить</a>
+                            <form method="post" action="{% url 'users:logout' %}" style="margin:0;">
+                                {% csrf_token %}
+                                <button class="default" type="submit">Выйти</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="hero-badges">
+                        <span class="hero-badge">Email подтверждён</span>
+                        <span class="hero-badge">Уровень: Клиент</span>
+                        {% if user.first_name or user.last_name %}
+                        <span class="hero-badge">Имя: {{ user.first_name }} {{ user.last_name }}</span>
+                        {% endif %}
+                    </div>
+                    {% if user.bio %}
+                        <p style="color: rgba(0,0,0,0.7); margin:4px 0 8px;">{{ user.bio }}</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="profile-grid" style="margin-top:20px;">
+                <a class="profile-link" href="{% url 'users:orders' %}">
+                    <img src="{% static 'icons/shopping-bag.png' %}" alt="">
+                    <div>
+                        <strong>Заказы</strong>
+                        <p style="color: rgba(0,0,0,0.6); margin-top:2px;">История и статус покупок</p>
+                    </div>
+                </a>
+                <a class="profile-link" href="{% url 'cart:cart_list' %}">
+                    <img src="{% static 'icons/shopping-cart.png' %}" alt="">
+                    <div>
+                        <strong>Корзина</strong>
+                        <p style="color: rgba(0,0,0,0.6); margin-top:2px;">Товары, готовые к оформлению</p>
+                    </div>
+                </a>
+                <a class="profile-link" href="{% url 'users:favorites' %}">
+                    <img src="{% static 'icons/heart.png' %}" alt="">
+                    <div>
+                        <strong>Избранное</strong>
+                        <p style="color: rgba(0,0,0,0.6); margin-top:2px;">Сохранённые товары</p>
+                    </div>
+                </a>
+                <a class="profile-link" href="{% url 'base:help' %}">
+                    <img src="{% static 'icons/help.webp' %}" alt="">
+                    <div>
+                        <strong>Помощь</strong>
+                        <p style="color: rgba(0,0,0,0.6); margin-top:2px;">Ответы на вопросы и поддержка</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>

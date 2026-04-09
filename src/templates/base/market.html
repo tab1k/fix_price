@@ -10,105 +10,19 @@
             </div>
 
             <div class="row">
+                {% for category in categories %}
                 <div class="card">
-                    <img src="{% static 'images/mebel.png' %}" alt="">
-                    <a href="#">Мебель</a>
+                    <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                    <a href="{% url 'store:category' category.slug %}">{{ category.name }}</a>
                 </div>
-                <div class="card">
-                    <img src="{% static 'images/sport.png' %}" alt="">
-                    <a href="#">Спорт</a>
-                </div>
-                <div class="card">
-                    <img src="{% static 'images/tehnika.png' %}" alt="">
-                    <a href="#">Электроника</a>
-                </div>
-                <div class="card">
-                    <img src="{% static 'images/mebel.png' %}" alt="">
-                    <a href="#">Мебель</a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="card">
-                    <img src="{% static 'images/mebel.png' %}" alt="">
-                    <a href="#">Мебель</a>
-                </div>
-                <div class="card">
-                    <img src="{% static 'images/sport.png' %}" alt="">
-                    <a href="#">Спорт</a>
-                </div>
-                <div class="card">
-                    <img src="{% static 'images/tehnika.png' %}" alt="">
-                    <a href="#">Электроника</a>
-                </div>
-                <div class="card">
-                    <img src="{% static 'images/mebel.png' %}" alt="">
-                    <a href="#">Мебель</a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="card">
-                    <img src="{% static 'images/mebel.png' %}" alt="">
-                    <a href="#">Мебель</a>
-                </div>
-                <div class="card">
-                    <img src="{% static 'images/sport.png' %}" alt="">
-                    <a href="#">Спорт</a>
-                </div>
-                <div class="card">
-                    <img src="{% static 'images/tehnika.png' %}" alt="">
-                    <a href="#">Электроника</a>
-                </div>
-                <div class="card">
-                    <img src="{% static 'images/mebel.png' %}" alt="">
-                    <a href="#">Мебель</a>
-                </div>
-            </div>
-
-            <div class="row hidden expandable">
-                <div class="card">
-                    <img src="{% static 'images/mebel.png' %}" alt="">
-                    <a href="#">Мебель</a>
-                </div>
-                <div class="card">
-                    <img src="{% static 'images/sport.png' %}" alt="">
-                    <a href="#">Спорт</a>
-                </div>
-                <div class="card">
-                    <img src="{% static 'images/tehnika.png' %}" alt="">
-                    <a href="#">Электроника</a>
-                </div>
-                <div class="card">
-                    <img src="{% static 'images/mebel.png' %}" alt="">
-                    <a href="#">Мебель</a>
-                </div>
-            </div>
-
-            <div class="row hidden expandable">
-                <div class="card">
-                    <img src="{% static 'images/mebel.png' %}" alt="">
-                    <a href="#">Мебель</a>
-                </div>
-                <div class="card">
-                    <img src="{% static 'images/sport.png' %}" alt="">
-                    <a href="#">Спорт</a>
-                </div>
-                <div class="card">
-                    <img src="{% static 'images/tehnika.png' %}" alt="">
-                    <a href="#">Электроника</a>
-                </div>
-                <div class="card">
-                    <img src="{% static 'images/mebel.png' %}" alt="">
-                    <a href="#">Мебель</a>
-                </div>
+                {% empty %}
+                <p>Категории пока не добавлены.</p>
+                {% endfor %}
             </div>
 
 
         </div>
-        <div class="btn-container">
-            <button class="expand-btn">Расширить</button>
-        </div>
+        {% if categories %}{% else %}{% endif %}
     </section>
 
     <section id="pre-footer">

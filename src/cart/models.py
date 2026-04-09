@@ -10,6 +10,9 @@ class Cart(models.Model):
     def __str__(self):
         return f'Корзина пользователя {self.user.email}'
 
+    def get_total_price(self):
+        return sum(item.get_total_price() for item in self.items.all())
+
     class Meta:
         verbose_name = 'Корзина'
         verbose_name_plural = 'Корзины'

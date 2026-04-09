@@ -1,11 +1,75 @@
 ﻿{% extends 'base.html' %}
 {% load static %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'styles/orders.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/adaptive_orders.css' %}">
+{% endblock %}
 {% block content %}
-    <section id="about">
+    <section id="orders">
         <div class="wrapper">
-            <div class="about-flex">
+            <div class="name">
                 <h1>Заказы</h1>
-                <p>Добро пожаловать {{user.email}}</p>    
+            </div>
+            <div class="orders-table">
+                <div class="orders-list">
+                    <p>Товар</p>
+                    <p>Описание</p>
+                    <p>Статус</p>
+                    <p>Дата</p>
+                    <p>Доставка</p>
+                    <p>Продавец</p>
+                </div>
+                <hr style="margin-top: 15px">
+
+                {% if orders %}
+                    {% for order in orders %}
+                    <div class="orders-rows">
+                        <div class="orders-row">
+                            <img src="{% static order.image %}" alt="{{ order.title }}">
+                        </div>
+                        <div class="orders-row">
+                            <h4>{{ order.title }}</h4>
+                            <p>Количество: {{ order.quantity }}</p>
+                            <p>Цена: {{ order.price }}</p>
+                        </div>
+                        <div class="orders-row">
+                            <p><i class="fa {{ order.status_icon }}" aria-hidden="true" style="margin-right: 5px;"></i>{{ order.status }}</p>
+                        </div>
+                        <div class="orders-row">
+                            <p>{{ order.date }}</p>
+                        </div>
+                        <div class="orders-row">
+                            <p>{{ order.address }}</p>
+                        </div>
+                        <div class="orders-row">
+                            <p>{{ order.seller }}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                {% else %}
+                    <div class="orders-rows" style="padding: 14px 0;">
+                        <p>У вас пока нет заказов.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <section id="pre-footer">
+        <div class="wrapper">
+            <div class="text">
+                <h1>Выгода с доставкой</h1>
+                <p>Подпишитесь и получайте промокоды, акции и подборки товаров на почту.</p>
+            </div>
+            <div class="search-footer">
+                <input type="email" placeholder="Введите вашу почту:">
+                <button>Подробнее</button>
+            </div>
+            <div class="text textp">
+                <p>Нажимая «Подписаться» вы соглашаетесь с <span> Условиями использования сайта </span> и <span>
+                        Политикой обработки
+                        персональных данных. </span> </p>
             </div>
         </div>
     </section>

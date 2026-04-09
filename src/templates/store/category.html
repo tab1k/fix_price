@@ -30,6 +30,14 @@
                         <a href="{% url 'store:product' product.slug %}">
                             <button class="default">Подробнее</button>
                         </a>
+                        {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'cart:add_to_cart' product.id %}" style="margin-top:8px;">
+                            {% csrf_token %}
+                            <button class="default" type="submit">В корзину</button>
+                        </form>
+                        {% else %}
+                        <a href="{% url 'users:login' %}" class="default" style="margin-top:8px; display:inline-block; text-decoration:none;">Войти, чтобы купить</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
